@@ -53,6 +53,7 @@ const NavBar = () => {
       </div>
       <div className="navbar-end">
         <Link href={"/login"} className="btn btn-outline btn-info rounded-2xl">Login</Link>
+        <Link href={"/register"} className="btn btn-outline btn-info rounded-2xl">Register</Link>
       </div>
     </div>
   );

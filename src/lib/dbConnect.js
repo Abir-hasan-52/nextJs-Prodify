@@ -1,7 +1,8 @@
 import { MongoClient, ServerApiVersion }  from "mongodb" ;
 
 export const collectionNamesObj={
-  productsCollection:"products"
+  productsCollection:"products",
+  userCollection:"register_user"
 }
 
 export default function deConnect(collectionName){
