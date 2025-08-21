@@ -1,22 +1,39 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { FaFacebookF, FaLinkedinIn, FaGoogle ,SocialLogin} from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaGoogle,
+  SocialLogin,
+} from "react-icons/fa";
 import { registerUser } from "@/app/actions/auth/registerUser";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const RegisterForm = () => {
+  const router = useRouter();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log({name,email,password})
-    await registerUser({ name, email, password });
-    
+
+    try {
+      // 👇 Register user
+      await registerUser({ name, email, password });
+
+      toast.success("Registered successfully!");
+
+      //   router.push("/");
+    } catch (error) {
+      toast.error("Registration failed!");
+    }
   };
   return (
-     <form onSubmit={handleSubmit} className="w-full max-w-lg space-y-8">
+    <form onSubmit={handleSubmit} className="w-full max-w-lg space-y-8">
       <label className="form-control w-full">
         <div className="label w-full">
           <span className="label-text  font-bold">Name</span>

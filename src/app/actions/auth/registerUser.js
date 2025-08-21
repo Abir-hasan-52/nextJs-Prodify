@@ -16,7 +16,9 @@ export const registerUser = async (payload) => {
         payload.password = hashedPassword
         const result = await userCollection.insertOne(payload);
         result.insertedId = result.insertedId.toString()
+        console.log(result.insertedId);
         return result;
+         
     }
     return null;
 
