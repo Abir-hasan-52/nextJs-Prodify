@@ -21,14 +21,14 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Link
-                href="/products"
+                href="/allProducts"
                 className="flex items-center gap-2 px-6 py-3 bg-rose-600 text-white rounded-lg shadow-md hover:bg-rose-700 transition"
               >
                 <FaShoppingCart /> View Products
               </Link>
 
               <Link
-                href="/dashboard/add-product"
+                href="/addProducts"
                 className="flex items-center gap-2 px-6 py-3 bg-gray-800 text-white rounded-lg shadow-md hover:bg-gray-900 transition"
               >
                 <FaPlus /> Add Product
