@@ -1,14 +1,28 @@
+// import React from 'react';
+
+// const AllProductsPage = () => {
+//     return (
+//         <div>
+            
+//         </div>
+//     );
+// };
+
+// export default AllProductsPage;
+
+
 import dbConnect from "@/lib/dbConnect";
 import { collectionNamesObj } from "@/lib/dbConnect";
 import Link from "next/link";
 
-const TopProducts = async () => {
+const AllProductsPage = async () => {
   const productsCollection = dbConnect(collectionNamesObj.productsCollection);
-  const data = await productsCollection.find({}).limit(3).toArray();
- 
+  const data = await productsCollection.find({}).toArray();
+  // const productsCollection = await dbConnect("products");
+  // const products = await productsCollection.find({}).toArray();
   return (
     <div className="max-w-7xl mx-auto py-10 px-6">
-      <h2 className="text-3xl font-bold text-gray-800 mb-8">🔥 Top Products</h2>
+      {/* <h2 className="text-3xl font-bold text-gray-800 mb-8">🔥 Top Products</h2> */}
       <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
         {data.map((p) => (
           <div
@@ -46,4 +60,4 @@ const TopProducts = async () => {
     </div>
   );
 };
-export default TopProducts;
+export default AllProductsPage;

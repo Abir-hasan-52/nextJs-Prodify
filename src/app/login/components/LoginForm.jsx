@@ -57,10 +57,10 @@ const LoginForm = () => {
           className="input input-bordered w-full"
         />
       </label>
-      <button className="w-full h-12 bg-orange-500 text-white font-bold">
+      <button className="w-full btn btn-outline btn-info rounded-2xl">
         Sign In
       </button>
-      <p className="text-center">Or Sign In with</p>
+      {/* <p className="text-center">Or Sign In with</p> */}
       {/* <SocialLogin /> */}
       <p className="text-center">
         Already have an account?{" "}

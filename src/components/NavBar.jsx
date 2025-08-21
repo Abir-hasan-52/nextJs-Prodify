@@ -13,7 +13,10 @@ const NavBar = () => {
         <Link href={"/"}> Home</Link>
       </li>
       <li>
-        <Link href={"/products"}> Products</Link>
+        <Link href={"/allProducts"}> Products</Link>
+      </li>
+      <li>
+        <Link href={"/addProducts"}> Add Products</Link>
       </li>
     </>
   );
