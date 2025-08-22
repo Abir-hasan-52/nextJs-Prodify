@@ -1,22 +1,12 @@
-// import React from 'react';
-
-// const AllProductsPage = () => {
-//     return (
-//         <div>
-            
-//         </div>
-//     );
-// };
-
-// export default AllProductsPage;
+ 
 
 
 import dbConnect from "@/lib/dbConnect";
-import { collectionNamesObj } from "@/lib/dbConnect";
+// import { collectionNamesObj } from "@/lib/dbConnect";
 import Link from "next/link";
 
 const AllProductsPage = async () => {
-  const productsCollection = dbConnect(collectionNamesObj.productsCollection);
+  const productsCollection = dbConnect("products");
   const data = await productsCollection.find({}).toArray();
   // const productsCollection = await dbConnect("products");
   // const products = await productsCollection.find({}).toArray();

@@ -6,7 +6,7 @@ import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
 
 const NavBar = () => {
-    const  {data:session,status} = useSession();
+  const { data: session, status } = useSession();
   const links = (
     <>
       <li>
@@ -15,9 +15,11 @@ const NavBar = () => {
       <li>
         <Link href={"/allProducts"}> Products</Link>
       </li>
-      <li>
-        <Link href={"/dashboard/addProducts"}> Add Products</Link>
-      </li>
+      {status === "authenticated" && (
+        <li>
+          <Link href="/dashboard/addProducts">Add Products</Link>
+        </li>
+      )}
     </>
   );
   return (
@@ -45,7 +47,7 @@ const NavBar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-             {links}
+            {links}
           </ul>
         </div>
         <Link href="/" className="btn btn-ghost text-xl">
@@ -54,22 +56,34 @@ const NavBar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-           {links}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        {
-            status=="authenticated"?(<>
-            <button onClick={()=>signOut()} className="btn btn-outline btn-info rounded-2xl ">
-                Logout
+        {status == "authenticated" ? (
+          <>
+            <button
+              onClick={() => signOut()}
+              className="btn btn-outline btn-info rounded-2xl "
+            >
+              Logout
             </button>
-            </>):(<>
-            <Link href={"/login"} className="btn btn-outline btn-info rounded-2xl">Login</Link>
-        <Link href={"/register"} className="btn btn-outline btn-info rounded-2xl">Register</Link>
-            </>)
-        }
-         
+          </>
+        ) : (
+          <>
+            <Link
+              href={"/login"}
+              className="btn btn-outline btn-info rounded-2xl"
+            >
+              Login
+            </Link>
+            <Link
+              href={"/register"}
+              className="btn btn-outline btn-info rounded-2xl"
+            >
+              Register
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

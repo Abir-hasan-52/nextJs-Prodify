@@ -9,10 +9,10 @@ import {
 } from "react-icons/fa";
 import { registerUser } from "@/app/actions/auth/registerUser";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 const RegisterForm = () => {
-  const router = useRouter();
+  // const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,6 +26,8 @@ const RegisterForm = () => {
       await registerUser({ name, email, password });
 
       toast.success("Registered successfully!");
+       
+      form.reset();
 
       //   router.push("/");
     } catch (error) {
@@ -33,52 +35,68 @@ const RegisterForm = () => {
     }
   };
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-lg space-y-8">
-      <label className="form-control w-full">
-        <div className="label w-full">
-          <span className="label-text  font-bold">Name</span>
+    
+
+    <div>
+      {/* Form */}
+      <form onSubmit={handleSubmit} className="space-y-5">
+        {/* Name */}
+        <div className="form-control w-full">
+          <label className="label">
+            <span className="label-text font-semibold">Name</span>
+          </label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your full name"
+            className="input input-bordered w-full rounded-xl"
+            required
+          />
         </div>
-        <input
-          type="text"
-          placeholder="Type here"
-          className="input input-bordered w-full"
-          name="name"
-        />
-      </label>
-      <label className="form-control w-full">
-        <div className="label w-full">
-          <span className="label-text  font-bold">Email</span>
+
+        {/* Email */}
+        <div className="form-control w-full">
+          <label className="label">
+            <span className="label-text font-semibold">Email</span>
+          </label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            className="input input-bordered w-full rounded-xl"
+            required
+          />
         </div>
-        <input
-          type="text"
-          name="email"
-          placeholder="Type here"
-          className="input input-bordered w-full"
-        />
-      </label>
-      <label className="form-control w-full">
-        <div className="label w-full">
-          <span className="label-text font-bold">Password</span>
+
+        {/* Password */}
+        <div className="form-control w-full">
+          <label className="label">
+            <span className="label-text font-semibold">Password</span>
+          </label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+            className="input input-bordered w-full rounded-xl"
+            required
+          />
         </div>
-        <input
-          type="password"
-          name="password"
-          placeholder="Type here"
-          className="input input-bordered w-full"
-        />
-      </label>
-      <button className="w-full btn btn-outline btn-info rounded-2xl">
-        Sign Up
-      </button>
-      {/* <p className="text-center">Or Sign In with</p> */}
-      {/* <SocialLogin /> */}
-      <p className="text-center">
-        Don't Have an account?{" "}
-        <Link href="/login" className="text-orange-500 font-bold">
-          Login
+
+        {/* Submit Button */}
+        <button className="w-full btn btn-info rounded-xl font-semibold hover:btn-primary transition-colors">
+          Sign Up
+        </button>
+      </form>
+      <p className="text-center text-gray-600 text-sm mt-4">
+        Have an account?{" "}
+        <Link
+          href="/login"
+          className="text-orange-500 font-semibold hover:underline"
+        >
+          Login please
         </Link>
       </p>
-    </form>
+    </div>
   );
 };
 
