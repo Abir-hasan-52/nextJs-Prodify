@@ -8,7 +8,7 @@
 
 ## 🚀 Live Demo
 
-🔗 [Live Demo](#)
+🔗 [Live Demo](https://simple-nextjs-app-steel.vercel.app/)
 
 ## ⚙️ Technologies & Tools
 
@@ -26,20 +26,6 @@
 git clone https://github.com/Abir-hasan-52/nextJs-Prodify.git
 cd nextJs-Prodify
 ````
-
-### 2. Install Dependencies
-
-```bash
-npm install
-```
-
- 
-
-### 4. Start Development Server
-
-```bash
-npm run dev
-```
 
 Visit [http://localhost:3000](https://simple-nextjs-app-steel.vercel.app/) to view the app.
 
@@ -90,8 +76,4 @@ For questions or suggestions, contact [Abir Hasan](https://github.com/Abir-hasan
 ```
 
 ---
-
-If you want, I can also make a **more polished version with badges, screenshots, and “Getting Started” steps** like a professional GitHub repo.  
-
-Do you want me to do that next?
-```
+ 
