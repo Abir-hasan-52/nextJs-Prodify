@@ -28,7 +28,7 @@ const Hero = () => {
               </Link>
 
               <Link
-                href="/addProducts"
+                href="dashboard/addProducts"
                 className="flex items-center gap-2 px-6 py-3 bg-gray-800 text-white rounded-lg shadow-md hover:bg-gray-900 transition"
               >
                 <FaPlus /> Add Product

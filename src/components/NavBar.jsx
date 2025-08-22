@@ -16,7 +16,7 @@ const NavBar = () => {
         <Link href={"/allProducts"}> Products</Link>
       </li>
       <li>
-        <Link href={"/addProducts"}> Add Products</Link>
+        <Link href={"/dashboard/addProducts"}> Add Products</Link>
       </li>
     </>
   );

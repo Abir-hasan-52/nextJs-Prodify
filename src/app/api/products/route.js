@@ -1,11 +1,50 @@
-import { collectionNamesObj } from "@/lib/dbConnect";
-import dbConnect, { collectionNamesObj } from "@/lib/dbConnect";
+import { MongoClient } from "mongodb";
 
-export const POST = async (req) => {
+const uri = process.env.MONGODB_URI;
 
-    const body = await req.json();
-    const productsCollection = dbConnect(collectionNamesObj.productsCollection)
-    const result = await productsCollection.insertOne(body)
+export async function GET() {
+  try {
+    const client = new MongoClient(uri);
+    await client.connect();
+    const database = client.db("prodify_service"); 
+    const collection = database.collection("products");
 
-    return NextResponse.json(result)
+    const products = await collection.find({}).sort({ _id: -1 }).toArray();
+    await client.close();
+
+    return new Response(JSON.stringify(products), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (error) {
+    console.error(error);
+    return new Response(JSON.stringify({ error: "Failed to fetch products" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+}
+
+export async function POST(req) {
+  try {
+    const product = await req.json();
+    const client = new MongoClient(uri);
+    await client.connect();
+    const database = client.db("prodify_service");
+    const collection = database.collection("products");
+
+    const result = await collection.insertOne(product);
+    await client.close();
+
+    return new Response(JSON.stringify(result), {
+      status: 201,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (error) {
+    console.error(error);
+    return new Response(JSON.stringify({ error: "Failed to create product" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 }

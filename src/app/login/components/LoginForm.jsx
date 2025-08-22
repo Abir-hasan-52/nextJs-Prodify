@@ -22,7 +22,7 @@ const LoginForm = () => {
       });
       if (response.ok) {
         toast.success("Logged In successfully");
-        router.push("/");
+        router.push("/allProducts");
         form.reset();
       } else {
         toast.error("FAILED to Log In");

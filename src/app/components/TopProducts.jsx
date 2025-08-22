@@ -1,5 +1,5 @@
-import dbConnect from "@/lib/dbConnect";
-import { collectionNamesObj } from "@/lib/dbConnect";
+import dbConnect, { collectionNamesObj } from "@/lib/dbConnect";
+// import { collectionNamesObj } from "@/lib/dbConnect";
 import Link from "next/link";
 
 const TopProducts = async () => {
@@ -8,7 +8,7 @@ const TopProducts = async () => {
  
   return (
     <div className="max-w-7xl mx-auto py-10 px-6">
-      <h2 className="text-3xl font-bold text-gray-800 mb-8">🔥 Top Products</h2>
+      <h2 className="text-3xl font-bold text-gray-800 mb-8">🔥 HighLight Products</h2>
       <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
         {data.map((p) => (
           <div
@@ -47,3 +47,7 @@ const TopProducts = async () => {
   );
 };
 export default TopProducts;
+
+
+
+ 
