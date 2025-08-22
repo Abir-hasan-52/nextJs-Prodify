@@ -27,7 +27,7 @@ git clone https://github.com/Abir-hasan-52/nextJs-Prodify.git
 cd nextJs-Prodify
 ````
 
-Visit [http://localhost:3000](https://simple-nextjs-app-steel.vercel.app/) to view the app.
+Live Link [http://localhost:3000](https://simple-nextjs-app-steel.vercel.app/) to view the app.
 
 ## 📂 Folder Structure
 
